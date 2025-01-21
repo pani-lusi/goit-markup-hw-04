@@ -381,7 +381,11 @@ button {
   background-color: #4d5ae5;
   width: 360px;
   height: 300px;
-  padding: 40px 32px 164px 32px;
+  /* padding: 40px 32px 164px 32px; */
+  padding: 40px 32px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: #f4f4fd;
 
   position: absolute;
   top: 0;
