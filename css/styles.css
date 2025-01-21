@@ -404,6 +404,9 @@ button {
   margin-bottom: 16px;
   font-weight: 500;
   color: #ffffff;
+  /* мы это задали для body, тут: по требованию робота: */
+  line-height: 1.5;
+  letter-spacing: 0.02em;
 }
 .main-footer .social-list {
   display: flex;
