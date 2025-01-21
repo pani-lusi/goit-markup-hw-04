@@ -128,6 +128,7 @@ button {
 .nav-list {
 }
 .nav-item {
+  position: relative;
 }
 .nav-item-link {
   font-weight: 500;
@@ -137,12 +138,28 @@ button {
   color: #2e2f42;
   padding: 24px 0;
   display: block;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .nav-item-link:hover,
 .nav-item-link:focus,
 .contact-list .link:hover,
 .contact-list .link:focus {
   color: #404bbf;
+}
+
+.nav-item:hover .nav-item-link::after,
+.nav-item:focus .nav-item-link::after {
+  content: "";
+  border-radius: 2px;
+  width: 48px;
+  height: 4px;
+  background-color: #404bbf;
+  display: block;
+
+  position: absolute;
+  bottom: 0; /* Располагаем псевдоэл-т внизу родителя */
+  left: 50%; /* начало псевдоэл-та посередине родителя */
+  transform: translateX(-50%); /* Смещаем влево на половину ширины псевдоэл-та*/
 }
 
 .contact-list {
@@ -163,6 +180,7 @@ button {
   color: #434455;
   padding: 24px 0;
   display: block;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .main-header .address {
   font-style: normal;
@@ -171,7 +189,19 @@ button {
 
 /* #region hero */
 .hero {
+  max-width: 1440px;
+  margin: 0 auto;
+
   background-color: #2e2f42;
+  background-image: linear-gradient(
+      rgba(46, 47, 66, 0.7),
+      rgba(46, 47, 66, 0.7)
+    ),
+    url(../images/Hero/people-office.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+
   text-align: center;
   padding: 188px 0;
 }
@@ -200,6 +230,7 @@ button {
   min-width: 169px; /* min-width чтобы влезло 2 слова*/
   height: 56px;
   border: none;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .hero-btn:hover,
 .hero-btn:focus {
@@ -217,6 +248,19 @@ button {
 }
 .features {
   padding: 120px 0;
+
+  .item-block-icons {
+    border: 1px solid #8e8f99;
+    border-radius: 4px;
+    width: 264px;
+    height: 112px;
+    background: #f4f4fd;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 8px;
+  }
 }
 /* #endregion Features section */
 
@@ -236,10 +280,41 @@ button {
   background-color: #ffffff;
   text-align: center;
   border-radius: 0px 0px 4px 4px;
+  box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08),
+    0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
 }
 .section-list .card-text {
   padding: 32px 0;
 }
+
+.team-list .social-list {
+  margin-top: 8px;
+}
+.social-list {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.social-list .link {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+
+  background-color: #4d5ae5;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.social-list .link:hover,
+.social-list .link:focus {
+  background-color: #404bbf;
+}
+.social-list .icon {
+  fill: #ffffff;
+}
+
 /* #endregion Our Team */
 
 /* #region Our Portfolio */
@@ -250,6 +325,12 @@ button {
 }
 .portfolio-list .item {
   flex-basis: calc(100% - 48px) / 3;
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.portfolio-list .item:hover {
+  box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08),
+    0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
 }
 .portfolio-list .card-text {
   padding-left: 16px;
@@ -260,7 +341,29 @@ button {
 .portfolio.section {
   padding-top: 120px;
   padding-bottom: 120px;
-  /* padding-bottom: 130px; */
+}
+.card-img {
+  position: relative;
+  overflow: hidden;
+}
+.overlay-link:hover .overlay,
+.overlay-link:focus .overlay {
+  transform: translateY(0);
+}
+.overlay {
+  background-color: #4d5ae5;
+  width: 360px;
+  height: 300px;
+  padding: 40px 32px 164px 32px;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.overlay .text {
+  color: #f4f4fd;
 }
 /* #endregion Our Portfolio */
 
@@ -270,6 +373,10 @@ button {
   color: #f4f4fd;
   padding: 100px 0;
 }
+
+.main-footer .container {
+  display: flex;
+}
 .accent {
   color: #f4f4fd;
 }
@@ -278,7 +385,28 @@ button {
   display: inline-block;
   margin-bottom: 16px;
 }
+.info {
+  flex-basis: 264px;
+  margin-right: 120px;
+}
 .main-footer .text {
   width: 264px;
+}
+
+.main-footer .contacts {
+  flex-basis: 208px;
+}
+.contacts-title {
+  margin-bottom: 16px;
+}
+.main-footer .social-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main-footer-list .link:hover,
+.main-footer-list .link:focus {
+  background-color: #31d0aa;
 }
 /* #endregion footer*/
