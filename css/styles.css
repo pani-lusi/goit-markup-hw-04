@@ -302,7 +302,7 @@ button {
 .team-list {
   display: flex;
 }
-.team-list .item {
+.team-list > .item {
   background-color: #ffffff;
   text-align: center;
   border-radius: 0px 0px 4px 4px;
@@ -318,8 +318,9 @@ button {
 }
 .social-list {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
+  gap: 24px;
 }
 .social-list .link {
   display: flex;
