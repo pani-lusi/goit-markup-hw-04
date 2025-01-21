@@ -373,9 +373,9 @@ button {
   position: relative;
   overflow: hidden;
 }
-.overlay-link:hover .overlay,
-.overlay-link:focus .overlay {
-  transform: translateY(0);
+.portfolio-list .item:hover .overlay,
+.portfolio-list .item:focus .overlay {
+  transform: translateY(0%);
 }
 .overlay {
   background-color: #4d5ae5;
