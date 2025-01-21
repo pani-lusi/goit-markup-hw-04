@@ -409,9 +409,10 @@ button {
   letter-spacing: 0.02em;
 }
 .main-footer .social-list {
-  display: flex;
+  /* display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: center; */
+  gap: 16px;
 }
 
 .main-footer-list .link:hover,
